@@ -136,6 +136,11 @@ function usernameValidation(){
     const usernameError=document.getElementById("usernameError");
     const usernameReg=/^[a-zA-Z]+(?: [a-zA-Z]+)*$/;
     const verifyUsernameValidation=usernameReg.test(username);
+    const data = JSON.parse(localStorage.getItem("userData"));
+    if(data?.some(user => user.username==username)){
+        usernameError.innerHTML="<p class='error'>Username already taken</p>";
+        return false;
+    }
     if(verifyUsernameValidation){
         usernameError.innerHTML="Looks Good";
     }else{
@@ -243,7 +248,7 @@ function searchData() {
     const resultContainer = document.getElementById("result");
     const data = JSON.parse(localStorage.getItem('userData'))
     const nameRegex = /^[a-z]+$/
-    if(searchTerm === '') return loadUsers(data) 
+    if(searchTerm === '') resultContainer.innerHTML = "search by name, age, photosize";
     let newData = []
     if(nameRegex.test(searchTerm)){
         newData = data.filter(user => user.name.toLowerCase().includes(searchTerm))
