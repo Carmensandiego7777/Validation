@@ -12,6 +12,7 @@ async function initializeLocalStorage() {
             education: document.getElementById('education').value,
             username: document.getElementById('username').value,
             password: document.getElementById('password').value,
+            occupation: document.getElementById('occupation').value,
             PAN: document.getElementById('PAN').value,
             photo: {
                 url: image,
@@ -65,6 +66,7 @@ function validateEntireForm(e) {
     const isUsernameValid = usernameValidation();
     const isPasswordValid = passwordValidation();
     const isPANValid = PANValidation();
+
     const isPhotoValid = photoValidation();
     if (isNameValid && isEmailValid && isPhoneValid && isDOBValid &&
         isGenderValid && isEducationValid &&
@@ -235,20 +237,22 @@ function photoValidation() {
 }
 
 function loadUsers(users) {
-    const results = document.querySelector('.result')
+    const results = document.querySelector('.result') 
+    if(users === '') return results.innerHTML ='<p>search by name, age in days and size of image</p>'
+    if(!users) return results.innerHTML = '<p>No match found</p>'
     results.innerHTML = "";
     users.map((user,index) => (
-        results.innerHTML += `<p key=${index}>Name: ${user.name}, Email: ${user.email}, Username: ${user.username}</p>`
+        results.innerHTML += `<p key=${index}><img src="${user.photo.url}" alt="profile" width="70" /><br>Name: ${user.name}<br>Email: ${user.email}<br> Username: ${user.username}<br> PAN:${user.PAN}<br> phone:${user.phone}<br> date:${user.dob}<br> Gender:${user.gender}<br> Education:${user.education}<br> Occupation:${user.occupation}</p>`
     ))
 }   
 
-loadUsers(JSON.parse(localStorage.getItem('userData')))
+    loadUsers(JSON.parse(localStorage.getItem('userData')) ? '' : null)
 function searchData() {
     const searchTerm = document.getElementById("search").value.toLowerCase();
     const resultContainer = document.getElementById("result");
     const data = JSON.parse(localStorage.getItem('userData'))
     const nameRegex = /^[a-z]+$/
-    if(searchTerm === '') resultContainer.innerHTML = "search by name, age, photosize";
+    if(searchTerm === '') return resultContainer.innerHTML = "search by name, age in days and size of image";
     let newData = []
     if(nameRegex.test(searchTerm)){
         newData = data.filter(user => user.name.toLowerCase().includes(searchTerm))
@@ -283,6 +287,6 @@ function searchData() {
         loadUsers(newData)
     }
     else {
-        resultContainer.innerHTML = "No matching data found";
+        return resultContainer.innerHTML = "No matching data found";
     }
 }
