@@ -16,70 +16,82 @@
 <body>
 
 <div class="container mt-5">
-    <nav id ="">
-        <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <h3><a class="nav-link active" href="index.html">Form</a></h3>
-            </li>
-            <li class="nav-item">
-                <h3><a class="nav-link" href="search.html">Search</a></h3>
-            </li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <h3>FORMS</h3>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto"> <!-- This will align the navigation links to the right -->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Form</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="search.html">Search</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
-    <form name="myForm" id="form" class="form"onsubmit="validateEntireForm(event)" >
-        name: <input type="text" name="fname" id="name" class="name" oninput="nameValidation()">
-        <span id="nameError" class="nameError"></span> <br/>
-        Email: <input type="email" name="email" id="email" class="email" oninput="emailValidation()">
-        <span id="emailError" class="emailError"></span>
-        <p id="w"></p>
-        Phone: <input type="text" name="phone" id="phone" class="phone" oninput="phoneValidation()">
-        <span id="phoneError" class="phoneError"></span>
-        <p id="e"></p>
-        DOB: <input type="date" name="date" id="date" class="date" oninput="dateValidation()">
-        <span id="dateError" class="dateError"></span>
-        <p id="r"></p>
-        Gender:<select id="gender" class="gender" oninput="genderValidation()">
-            <option value=""></option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
-        <span id="genderError" class="genderError"></span>
-
-        <p id="t"></p>
-        Education: <select id="education" class="education" oninput="educationValidation()">
-            <option value=""></option>
-            <option value="highschool">High School</option>
-            <option value="college">College</option>
-            <option value="university">University</option>
-        </select>
-        <span id="educationError" class="educationError"></span>
-        <p id="y"></p>
-        Occupation: <select id="occupation" class="occupation" >
-            <option value=""></option>
-            <option value="student">Student</option>
-            <option value="employer">Employer</option>
-        </select>
-        <p id="u"></p>
-        Username:<input type="text" id="username" name="username" class="username" oninput="usernameValidation()">
-        <span id="usernameError" class="usernameError"></span>
-
-        <br>
-
-        Password: <input type="password" id="password" name="password" class="password" oninput="passwordValidation()">
-        <span id="passwordError"></span>
-        <br>
-
-        PAN: <input type ="text"  id="PAN" name="PAN" class="PAN" oninput="PANValidation()">
-        <span id="PANError" class="PANError"></span>
-        <br>
-
-        Profile photo: <input type="file" id="photo" name="photo" accept=".jpg, .jpeg, .png" onchange="photoValidation()">
-        <span id="photoError" class="photoError"></span>
-    
-        
-        <input type="submit" class="test" value="Submit" >
-    </form>
-    
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+            <form name="myForm" id="form" class="form" onsubmit="validateEntireForm(event)">
+                    name: <input type="text" name="fname" id="name" class="name" oninput="nameValidation()">
+                    <span id="nameError" class="nameError"></span> <br/>
+                    Email: <input type="email" name="email" id="email" class="email" oninput="emailValidation()">
+                    <span id="emailError" class="emailError"></span>
+                    <p id="w"></p>
+                    Phone: <input type="text" name="phone" id="phone" class="phone" oninput="phoneValidation()">
+                    <span id="phoneError" class="phoneError"></span>
+                    <p id="e"></p>
+                    DOB: <input type="date" name="date" id="date" class="date" oninput="dateValidation()">
+                    <span id="dateError" class="dateError"></span>
+                    <p id="r"></p>
+                    Gender:<select id="gender" class="gender" oninput="genderValidation()">
+                        <option value=""></option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <span id="genderError" class="genderError"></span>
+            
+                    <p id="t"></p>
+                    Education: <select id="education" class="education" oninput="educationValidation()">
+                        <option value=""></option>
+                        <option value="highschool">High School</option>
+                        <option value="college">College</option>
+                        <option value="university">University</option>
+                    </select>
+                    <span id="educationError" class="educationError"></span>
+                    <p id="y"></p>
+                    Occupation: <select id="occupation" class="occupation" >
+                        <option value=""></option>
+                        <option value="student">Student</option>
+                        <option value="employer">Employer</option>
+                    </select>
+                    <p id="u"></p>
+                    Username:<input type="text" id="username" name="username" class="username" oninput="usernameValidation()">
+                    <span id="usernameError" class="usernameError"></span>
+            
+                    <br>
+            
+                    Password: <input type="password" id="password" name="password" class="password" oninput="passwordValidation()">
+                    <span id="passwordError"></span>
+                    <br>
+            
+                    PAN: <input type ="text"  id="PAN" name="PAN" class="PAN" oninput="PANValidation()">
+                    <span id="PANError" class="PANError"></span>
+                    <br>
+            
+                    Profile photo: <input type="file" id="photo" name="photo" accept=".jpg, .jpeg, .png" onchange="photoValidation()">
+                    <span id="photoError" class="photoError"></span>
+                
+                    
+                    <input type="submit" class="test" value="Submit" >
+                
+            </form>
+        </div>
+    </div>
 </div>
 
 <script src="index.js" defer></script>
