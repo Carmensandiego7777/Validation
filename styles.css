@@ -33,12 +33,10 @@
     color: #ff0000;
 }
 
-body {
-    background: rgb(2,0,36);
-background: -moz-linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 33%, rgba(0,212,255,1) 100%);
-background: -webkit-linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 33%, rgba(0,212,255,1) 100%);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 33%, rgba(0,212,255,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1);
+.search-icon {
+    width: 40px; /* Adjust the width of the search icon */
+    height: 40px; /* Adjust the height of the search icon */
+    margin: 0 5px; /* Add some spacing between the search icon and the search button */
 }
 
 #form{
@@ -49,4 +47,37 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endCo
     padding: 20px;
     border-radius: 5px;
 
+}
+
+/* Result styles */
+.result p {
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.result img.profile-photo {
+    border-radius: 50%;
+    margin-bottom: 10px;
+    width: 80px; /* Increased size */
+    height: 80px; /* Increased size */
+}
+
+.result p {
+    margin-bottom: 10px;
+}
+
+.result p:last-child {
+    margin-bottom: 0;
+}
+
+/* Style individual fields */
+.result p span {
+    font-weight: bold;
+    color: #333333;
+}
+
+.result p img {
+    margin-right: 1000px;
 }
